@@ -4,6 +4,7 @@
 
 [core]
 	editor = code --wait
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [init]
 	defaultBranch = main
@@ -32,3 +33,9 @@
 	lg = log --oneline --graph --decorate --all
 	ign = ls-files -o -i --exclude-standard
 	shoot = push origin --delete
+	unstage = reset HEAD --
+	prev = checkout -
+
+# Per-machine overrides (identity, remote rewrites). Not tracked in this repo.
+[include]
+	path = ~/.config/git/local
