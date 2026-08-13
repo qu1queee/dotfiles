@@ -102,11 +102,13 @@ PROMPT='%B%~%b${vcs_info_msg_0_} $ '
 # --- fzf (fuzzy finder) ---
 # Ctrl+R = interactive history search
 # Ctrl+T = fuzzy find file in current directory
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # --- zoxide (smart cd) ---
 # Usage: z <partial-name>  jumps to most frecent match
-eval "$(zoxide init zsh)"
+command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 
 # --- Private config (never committed) ---
 [ -f ~/.private.zsh ] && source ~/.private.zsh
